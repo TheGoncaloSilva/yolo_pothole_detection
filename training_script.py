@@ -78,6 +78,7 @@ def print_settings() -> None:
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--log", help="Log threshold (default=DEBUG)", type=str, default='DEBUG')
+    parser.add_argument("--logFile", help="Log file (default=logs.log)", type=str, default='logs.log')
     parser.add_argument("--datafile", help="Path to the data.yml file (yolo config file)", type=str, default='./dataset/data.yaml')
     parser.add_argument("--train", help="Path to the training data", type=str, default='./dataset/train')
     parser.add_argument("--val", help="Path to the validation data", type=str, default='./dataset/valid')
@@ -100,7 +101,7 @@ if __name__ == '__main__':
     )
 
     # configure file logger
-    fileLogger = logging.FileHandler('training.log')
+    fileLogger = logging.FileHandler(args.logFile)
     fileLogger.setLevel(logging.DEBUG)
     fileLogger.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
     logging.getLogger().addHandler(fileLogger)
