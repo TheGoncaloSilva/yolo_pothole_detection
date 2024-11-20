@@ -156,18 +156,14 @@ if __name__ == '__main__':
                 workers=args.workers,
                 patience=args.patience)  # Early stopping if no improvement after 10 epochs
     training_time: float = time.time() - startTime
-    # In hh:mm:ss
     logging.info("Model has finished training and took: %s", time.strftime("%H:%M:%S", time.gmtime(training_time)))
-    # Evaluate the model
-    results = model.evaluate(data=args.datafile)
-    logging.info(results)
 
     # print again configuration settings
     print_settings()
 
     # Export model 
-    model.export()
+    model.export(format="onnx")
 
-    # Export model as dla format, optimized for jetson
-    model.export('model.dla')
+    # Export model
+    model.export(format="engine")
     
