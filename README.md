@@ -120,3 +120,11 @@ Large datasets or when overfitting is a concern: Use a lower patience value (e.g
 tips:
 
 * early dropping to prevent overfiting
+
+Use screen:
+```bash
+screen -s {window_name}
+screen -ad # Run detached
+screen -ls # List windows
+screen -r {window_id}
+```

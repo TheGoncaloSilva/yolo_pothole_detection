@@ -10,6 +10,7 @@ import pandas as pd
 import matplotlib.image as mpimg
 import seaborn as sns
 import torch
+import time
 
 sns.set_style('darkgrid')
 
@@ -147,13 +148,16 @@ if __name__ == '__main__':
 
     # Training the model
     logging.info("Starting model training")
+    startTime = time.time()
     model.train(data=args.datafile,
                 epochs=args.epochs,
                 imgsz=(image_info[0], image_info[1], image_info[2]),
                 batch=args.batch,
                 workers=args.workers,
                 patience=args.patience)  # Early stopping if no improvement after 10 epochs
-    logging.info("Model has finished training")
+    training_time: float = time.time() - startTime
+    # In hh:mm:ss
+    logging.info("Model has finished training and took: %s", time.strftime("%H:%M:%S", time.gmtime(training_time)))
     # Evaluate the model
     results = model.evaluate(data=args.datafile)
     logging.info(results)
