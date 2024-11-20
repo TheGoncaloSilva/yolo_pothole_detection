@@ -1,5 +1,5 @@
 import sys
-from ultralytics import YOLO, mps
+from ultralytics import YOLO
 import matplotlib.pyplot as plt
 import argparse
 import logging
@@ -80,12 +80,18 @@ if __name__ == '__main__':
         datefmt='%Y-%m-%d %H:%M:%S'
     )
 
-    # Check if PyTorch is using the GPU
-    logging.info("Is CUDA available? " + str(torch.cuda.is_available()))
-    logging.info("Device name: " + torch.cuda.get_device_name(0))
-    # Set the device to GPU
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    logging.info(f'Device is on: {device}')
+    # Set the device to the appropriate one
+    if torch.cuda.is_available():
+        logging.info("Device name: " + torch.cuda.get_device_name(0))
+        torch.device('cuda')
+    elif torch.backends.mps.is_available():
+        logging.info("Device name: M1") #+ torch.mps.get_device_name(0))
+        mps_device = torch.device("mps")
+        x = torch.ones(1, device=mps_device)
+        print (x)
+    else:
+        logging.info("Device name: CPU")
+        torch.device('cpu')
 
     # Configure the data paths
     train_images: str = args.train + "/images"
@@ -113,11 +119,11 @@ if __name__ == '__main__':
 
     # Training the model
     logging.info("Starting model training")
-    model.train(device=mps,
-                data=args.datafile,
+    model.train(data=args.datafile,
                 epochs=args.epochs,
                 imgsz=(image_info[0], image_info[1], image_info[2]),
-                batch=-1,
+                batch=4,
+                workers=4,
                 patience=10)  # Early stopping if no improvement after 10 epochs
     logging.info("Model has finished training")
     # Evaluate the model
