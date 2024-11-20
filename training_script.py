@@ -85,7 +85,7 @@ if __name__ == '__main__':
         logging.info("Device name: " + torch.cuda.get_device_name(0))
         torch.device('cuda')
     elif torch.backends.mps.is_available():
-        logging.info("Device name: M1") #+ torch.mps.get_device_name(0))
+        logging.info("Device name: Apple Silicon") #+ torch.mps.get_device_name(0))
         mps_device = torch.device("mps")
         x = torch.ones(1, device=mps_device)
         print (x)
