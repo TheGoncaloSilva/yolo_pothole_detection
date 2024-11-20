@@ -17,7 +17,7 @@ Due to the size of the dataset used, it needs to be hosted in an external platfo
 ### For Linux
 
 ```bash
-curl -L -o ./dataset.zip https://www.kaggle.com/api/v1/datasets/download/ryukijanoramunae/pothole-dataset~
+curl -L -o ./dataset.zip https://www.kaggle.com/api/v1/datasets/download/ryukijanoramunae/pothole-dataset
 unzip ./dataset.zip -d dataset
 rm ./dataset.zip
 ```
@@ -38,14 +38,44 @@ To install the dependencies for this project, you just need to use the provided 
 pip install -r requirements.txt
 ```
 
+# Dataset
+
+Data distribution... (how much for train, val and test?)
 # Training
 
 ## Pre-trained
 
 ### Epochs
+* epochs at 250 -> best
+### Patience
+Early stopping is a regularization technique that halts training when the model's performance on the validation set stops improving. The patience parameter controls how long the training should continue without improvement before stopping.
+Patience specifies the number of epochs to wait after the last improvement in the validation metric (e.g., validation loss or mAP) before stopping. -> positive integer
 
-### 
+#### Impact of Patience
+Higher patience:
+
+The model will have more time to improve, even if performance stagnates temporarily.
+Useful if the training process involves noisy validation metrics or requires more epochs to converge.
+However, it can lead to longer training times and increase the risk of overfitting if the model continues training unnecessarily.
+Lower patience:
+
+The model stops sooner after performance stops improving.
+Useful to save time and prevent overfitting, especially if the model is prone to diminishing returns quickly.
+However, it may stop prematurely before the model fully converges.
+
+For example:
+* If patience = 5, and validation loss hasn't improved for 5 consecutive epochs, training stops.
+
+##### Practical Recommendations
+Small datasets or noisy validation metrics: Use a higher patience value (e.g., 10–20 epochs) to ensure the model doesn't stop prematurely due to random fluctuations.
+Large datasets or when overfitting is a concern: Use a lower patience value (e.g., 3–5 epochs) to prevent overfitting and save training time.
+
+
+
 
 ## Sources
 
 [YOLO training tips](https://docs.ultralytics.com/yolov5/tutorials/tips_for_best_training_results/#training-settings)
+
+tips:
+* early dropping to prevent overfiting

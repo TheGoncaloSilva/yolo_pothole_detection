@@ -2,3 +2,4 @@ ultralytics
 pandas
 torch
 argparse
+opencv-python
