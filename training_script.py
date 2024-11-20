@@ -117,7 +117,7 @@ if __name__ == '__main__':
                 data=args.datafile,
                 epochs=args.epochs,
                 imgsz=(image_info[0], image_info[1], image_info[2]),
-                batch=-1,
+                batch=4,
                 patience=10)  # Early stopping if no improvement after 10 epochs
     logging.info("Model has finished training")
     # Evaluate the model
