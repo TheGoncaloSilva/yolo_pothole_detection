@@ -1,5 +1,4 @@
 from ultralytics import YOLO
-import squarify
 import matplotlib.pyplot as plt
 import argparse
 import logging
@@ -81,7 +80,7 @@ if __name__ == '__main__':
     )
 
     # Check if PyTorch is using the GPU
-    logging.info("Is CUDA available? ", torch.cuda.is_available())
+    logging.info("Is CUDA available? ", torch.cuda.is_available()[0])
     logging.info("Device name: ", torch.cuda.get_device_name(0))
     # Set the device to GPU
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
