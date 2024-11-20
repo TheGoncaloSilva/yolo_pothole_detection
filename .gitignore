@@ -1,3 +1,15 @@
+######################################
+##         Dataset .gitignore       ##
+######################################
+# Ignore the dataset folder
+dataset/
+dataset.zip
+dataset/*
+
+######################################
+##          Python .gitignore       ##
+######################################
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
