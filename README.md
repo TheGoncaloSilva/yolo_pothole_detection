@@ -78,6 +78,11 @@ pip install -r requirements.txt
 
 Data distribution... (how much for train, val and test?)
 
+| Use | nº images |
+| Test | 891 |
+| Train | 11068 |
+| Valid | 1808 |
+
 # Training
 
 ## Pre-trained

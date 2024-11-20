@@ -112,7 +112,8 @@ if __name__ == '__main__':
     if torch.cuda.is_available():
         torch.device('cuda')
         device = torch.device("cuda")
-    elif torch.backends.mps.is_available():
+    # Check if MPS is available and built/activated
+    elif torch.backends.mps.is_available() and torch.backends.mps.is_built():
         device = torch.device("mps")
         x = torch.ones(1, device=device)
         print (x)
