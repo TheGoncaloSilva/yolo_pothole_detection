@@ -114,7 +114,7 @@ if __name__ == '__main__':
                 epochs=args.epochs,
                 imgsz=(image_info[0], image_info[1], image_info[2]),
                 seed=42,
-                batch=8,
+                batch=2,
                 workers=4,
                 patience=10)  # Early stopping if no improvement after 10 epochs
     
