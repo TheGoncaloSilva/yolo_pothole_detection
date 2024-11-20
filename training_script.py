@@ -1,5 +1,5 @@
 import sys
-from ultralytics import YOLO
+from ultralytics import YOLO, mps
 import matplotlib.pyplot as plt
 import argparse
 import logging
@@ -113,11 +113,11 @@ if __name__ == '__main__':
 
     # Training the model
     logging.info("Starting model training")
-    model.train(device=0,
+    model.train(device=mps,
                 data=args.datafile,
                 epochs=args.epochs,
                 imgsz=(image_info[0], image_info[1], image_info[2]),
-                batch=4,
+                batch=-1,
                 patience=10)  # Early stopping if no improvement after 10 epochs
     logging.info("Model has finished training")
     # Evaluate the model
