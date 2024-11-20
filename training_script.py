@@ -158,6 +158,9 @@ if __name__ == '__main__':
     results = model.evaluate(data=args.datafile)
     logging.info(results)
 
+    # print again configuration settings
+    print_settings()
+
     # Export model 
     model.export()
 
