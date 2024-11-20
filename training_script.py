@@ -58,6 +58,22 @@ def get_images_size(train_images_path: str) -> list[int, int, int]:
     height, width, channels = image.shape
     return [height, width, channels]
 
+def print_settings() -> None:
+    logging.info("Settings:")
+    logging.info(f" - Train images path: {train_images}")
+    logging.info(f" - Train labels path: {train_labels}")
+    logging.info(f" - Test images path: {test_images}")
+    logging.info(f" - Test labels path: {test_labels}")
+    logging.info(f" - Validation images path: {val_images}")
+    logging.info(f" - Validation labels path: {val_labels}")
+    logging.info(f" - Model name: {modelName}")
+    logging.info(f" - Epochs: {args.epochs}")
+    logging.info(f" - Image size: {image_info[0]}x{image_info[1]}")
+    logging.info(f" - Image Channels: {image_info[2]}")
+    logging.info(f" - Device: {device}")
+    logging.info(f" - Batch size: {args.batch}")
+    logging.info(f" - Workers: {args.workers}")
+    logging.info(f" - Patience: {args.patience}")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -68,6 +84,9 @@ if __name__ == '__main__':
     parser.add_argument("--test", help="Path to the test data", type=str, default='./dataset/test')
     parser.add_argument("--model", help="Path to the config file (default=yolov8n)", type=str, default='yolov8n')
     parser.add_argument("--epochs", help="Number of epochs (default=100)", type=int, default=250)
+    parser.add_argument("--batch", help="Batch size (default=4)", type=int, default=4)
+    parser.add_argument("--workers", help="Number of workers (default=4)", type=int, default=4)
+    parser.add_argument("--patience", help="Early stopping patience (default=10)", type=int, default=10)
     args = parser.parse_args()
 
     numericLogLevel = getattr(logging, args.log.upper(), None)
@@ -76,22 +95,28 @@ if __name__ == '__main__':
 
     logging.basicConfig(
         level=numericLogLevel, 
-        format='%(asctime)s - %(levelname)s - %(funcName)s - %(message)s',
+        format='%(asctime)s - %(levelname)s - %(message)s',
         datefmt='%Y-%m-%d %H:%M:%S'
     )
 
+    # configure file logger
+    fileLogger = logging.FileHandler('training.log')
+    fileLogger.setLevel(logging.DEBUG)
+    fileLogger.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+    logging.getLogger().addHandler(fileLogger)
+
     # Set the device to the appropriate one
+    deviceType: str = ""
     if torch.cuda.is_available():
-        logging.info("Device name: " + torch.cuda.get_device_name(0))
         torch.device('cuda')
+        device = torch.device("cuda")
     elif torch.backends.mps.is_available():
-        logging.info("Device name: Apple Silicon") #+ torch.mps.get_device_name(0))
-        mps_device = torch.device("mps")
-        x = torch.ones(1, device=mps_device)
+        device = torch.device("mps")
+        x = torch.ones(1, device=device)
         print (x)
     else:
         logging.info("Device name: CPU")
-        torch.device('cpu')
+        device = torch.device("cpu")
 
     # Configure the data paths
     train_images: str = args.train + "/images"
@@ -104,7 +129,6 @@ if __name__ == '__main__':
 
     # Load a sample image to get the size -> image_info[0] = height, image_info[1] = width, image_info[2] = channels
     image_info: list[int, int, int] = get_images_size(train_images)
-    logging.info(f"Processing images with {image_info[0]}x{image_info[1]} and {image_info[2]} channels")
 
     # Check the name of the model
     modelName: str = args.model
@@ -117,14 +141,17 @@ if __name__ == '__main__':
     # free up GPU memory
     torch.cuda.empty_cache()
 
+    # print all configuration settings
+    print_settings()
+
     # Training the model
     logging.info("Starting model training")
     model.train(data=args.datafile,
                 epochs=args.epochs,
                 imgsz=(image_info[0], image_info[1], image_info[2]),
-                batch=4,
-                workers=4,
-                patience=10)  # Early stopping if no improvement after 10 epochs
+                batch=args.batch,
+                workers=args.workers,
+                patience=args.patience)  # Early stopping if no improvement after 10 epochs
     logging.info("Model has finished training")
     # Evaluate the model
     results = model.evaluate(data=args.datafile)
