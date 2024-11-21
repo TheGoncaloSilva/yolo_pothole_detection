@@ -118,6 +118,13 @@ For example:
 Small datasets or noisy validation metrics: Use a higher patience value (e.g., 10–20 epochs) to ensure the model doesn't stop prematurely due to random fluctuations.
 Large datasets or when overfitting is a concern: Use a lower patience value (e.g., 3–5 epochs) to prevent overfitting and save training time.
 
+### Background images
+Background images are images with no objects that are added to a dataset to reduce False Positives (FP). We recommend about 0-10% background images to help reduce FPs (COCO has 1000 background images for reference, 1% of the total). No labels are required for background images.
+
+### Batch size
+
+### Hyperparameters (Optional)
+
 ## Sources
 
 [YOLO training tips](https://docs.ultralytics.com/yolov5/tutorials/tips_for_best_training_results/#training-settings)

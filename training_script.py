@@ -162,6 +162,9 @@ if __name__ == '__main__':
     # print again configuration settings
     print_settings()
 
+    # Save model
+    torch.save(model, "pothole_" + modelName)
+
     # Export model 
     model.export(format="onnx")
 
