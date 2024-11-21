@@ -89,6 +89,7 @@ Data distribution... (how much for train, val and test?)
 
 ### Epochs
 
+Each epoch represents a full pass over the entire dataset. Adjusting this value can affect training duration and model performance [source](https://www.ultralytics.com/glossary/epoch)
 * epochs at 250 -> best
 
 ### Patience
@@ -123,11 +124,71 @@ Background images are images with no objects that are added to a dataset to redu
 
 ### Batch size
 
+Refers to the number of training examples utilized in one iteration of model training. It significantly influences the efficiency and speed of training, as well as model performance. By breaking the training dataset into smaller batches, computational resources are used more efficiently, and gradient updates occur more frequently, leading to faster convergence. [source](https://www.ultralytics.com/glossary/batch-size)
+
+Smaller batch sizes can lead to faster learning and less opportunity for overfitting, whereas larger batch sizes can leverage parallel computation power for more efficient training. The right balance depends on the specific application and available hardware.
+
+Batch size affects various aspects of model training:
+
+Training Speed: Larger batch sizes utilize the computational resources effectively, often accelerating training. However, they require more memory, potentially limiting their use in resource-constrained environments.
+Generalization: Smaller batch sizes introduce more noise in training, which can help models generalize better by avoiding overfitting. This randomness can be beneficial for models in real-world scenarios like AI in Self-Driving.
+Convergence Stability: Smaller batches may result in more unstable convergence due to the high variance in gradient estimation, while larger batches offer smoother convergence.
+
+#### Usage
+
+Set as an integer :
+* e.g.: `batch=16`
+* auto mode for 60% GPU memory utilization: `batch=-1`
+* auto mode with specified utilization fraction `batch=0.70`.
+
+### Workers
+
+Number of worker threads for data loading (per RANK if Multi-GPU training). Influences the speed of data preprocessing and feeding into the model, especially useful in multi-GPU setups.
+
+### Seed
+
+Sets the random seed for training, ensuring reproducibility of results across runs with the same configurations.
+
+### Optimizer
+
+Choice of optimizer for training. Options include SGD, Adam, AdamW, NAdam, RAdam, RMSProp etc., or auto for automatic selection based on model configuration. Affects convergence speed and stability.
+
+### Initial Learning Rate
+
+lr0 -> Initial learning rate (i.e. SGD=1E-2, Adam=1E-3) . Adjusting this value is crucial for the optimization process, influencing how rapidly model weights are updated.
+
+### Final Learning Rate
+
+lrf -> Final learning rate as a fraction of the initial rate = (lr0 * lrf), used in conjunction with schedulers to adjust the learning rate over time.
+
+### Momentum
+
+Momentum factor for SGD or beta1 for Adam optimizers, influencing the incorporation of past gradients in the current update.
+
+### Dropout 
+
+Dropout rate for regularization in classification tasks, preventing overfitting by randomly omitting units during training.
+
+### Maybe try augmentation?
+
 ### Hyperparameters (Optional)
+
+### Improve training speed 
+
+* [Reduce dataset size](https://github.com/ultralytics/ultralytics/issues/4695)
+* [Changing the optimizer to Adam and adjusting the learning rate](https://github.com/ultralytics/ultralytics/issues/5717) -> no difference
+
+# Validate the model
+
+# Results
+
+### Check distances of detection
+
 
 ## Sources
 
-[YOLO training tips](https://docs.ultralytics.com/yolov5/tutorials/tips_for_best_training_results/#training-settings)
+* [YOLO training tips](https://docs.ultralytics.com/yolov5/tutorials/tips_for_best_training_results/#training-settings)
+* [Install](https://medium.com/@manyi.yim/pytorch-on-mac-m1-gpu-installation-and-performance-698442a4af1e) pytorch in macos Apple Silicon and [here](https://stackoverflow.com/questions/68820453/how-to-run-pytorch-on-macbook-pro-m1-gpu)
 
 tips:
 
