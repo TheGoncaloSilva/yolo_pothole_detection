@@ -196,6 +196,26 @@ Dropout rate for regularization in classification tasks, preventing overfitting 
 * [YOLO training tips](https://docs.ultralytics.com/yolov5/tutorials/tips_for_best_training_results/#training-settings)
 * [Install](https://medium.com/@manyi.yim/pytorch-on-mac-m1-gpu-installation-and-performance-698442a4af1e) pytorch in macos Apple Silicon and [here](https://stackoverflow.com/questions/68820453/how-to-run-pytorch-on-macbook-pro-m1-gpu)
 
+### Papers
+
+Keywords:
+* YOLO
+* Object Detection
+* Computer Vision
+* Deep Neural Networks
+* Deep Learning
+* Neural Networks
+
+Papers:
+* [Object Detection in 20 Years: A Survey](https://ieeexplore.ieee.org/abstract/document/10028728/keywords#keywords)
+* [Object Detection With Deep Learning: A Review](https://ieeexplore.ieee.org/abstract/document/8627998?casa_token=EEZOjMDhn5MAAAAA:ijCq364P3WpbJ_luSdnz5Xkt_7BFUGCBbBCx9ZIhzPF9DEuO9anO-JnkGyscmletsBC9amG0s98)
+* [A review of Yolo Algorithm development](https://www.sciencedirect.com/science/article/pii/S1877050922001363)
+* [Object detection using YOLO: challenges, architectural successors, datasets and applications](https://link.springer.com/article/10.1007/s11042-022-13644-y)
+* [A Comprehensive Review of YOLO Architectures in Computer Vision: From YOLOv1 to YOLOv8 and YOLO-NAS](https://www.mdpi.com/2504-4990/5/4/83)
+* [YOLO-v1 to YOLO-v8, the Rise of YOLO and Its Complementary Nature toward Digital Manufacturing and Industrial Defect Detection](https://www.mdpi.com/2075-1702/11/7/677)
+* [Comparison of CNN and YOLO for Object Detection](https://koreascience.kr/article/JAKO202011161035249.page)
+
+
 tips:
 
 * early dropping to prevent overfiting
