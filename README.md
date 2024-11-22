@@ -141,6 +141,10 @@ Set as an integer :
 * auto mode for 60% GPU memory utilization: `batch=-1`
 * auto mode with specified utilization fraction `batch=0.70`.
 
+#### Compare performance
+
+see launching performance for jetson, kaggle and other device
+
 ### Workers
 
 Number of worker threads for data loading (per RANK if Multi-GPU training). Influences the speed of data preprocessing and feeding into the model, especially useful in multi-GPU setups.
