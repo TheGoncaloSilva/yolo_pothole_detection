@@ -157,7 +157,17 @@ if __name__ == '__main__':
                 workers=args.workers,
                 patience=args.patience)  # Early stopping if no improvement after 10 epochs
     training_time: float = time.time() - startTime
-    logging.info("Model has finished training and took: %s", time.strftime("%H:%M:%S", time.gmtime(training_time)))
+    
+    # Calculate days, hours, minutes, and seconds
+    days, remainder = divmod(training_time, 86400)  # 86400 seconds in a day
+    hours, remainder = divmod(remainder, 3600)
+    minutes, seconds = divmod(remainder, 60)
+
+    # Format the output
+    if days > 0:
+        logging.info("Model has finished training and took: %d days %02d:%02d:%02d", int(days), int(hours), int(minutes), int(seconds))
+    else:
+        logging.info("Model has finished training and took: %02d:%02d:%02d", int(hours), int(minutes), int(seconds))
 
     # print again configuration settings
     print_settings()

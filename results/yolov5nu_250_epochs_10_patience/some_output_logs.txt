@@ -1,0 +1,48 @@
+2024-11-20 16:17:53,199 - INFO - Settings:
+2024-11-20 16:17:53,199 - INFO -  - Train images path: ./dataset/train/images
+2024-11-20 16:17:53,199 - INFO -  - Train labels path: ./dataset/train/labels
+2024-11-20 16:17:53,199 - INFO -  - Test images path: ./dataset/test/images
+2024-11-20 16:17:53,200 - INFO -  - Test labels path: ./dataset/test/labels
+2024-11-20 16:17:53,200 - INFO -  - Validation images path: ./dataset/valid/images
+2024-11-20 16:17:53,200 - INFO -  - Validation labels path: ./dataset/valid/labels
+2024-11-20 16:17:53,200 - INFO -  - Model name: yolov5n.pt
+2024-11-20 16:17:53,200 - INFO -  - Epochs: 1
+2024-11-20 16:17:53,200 - INFO -  - Image size: 640x640
+2024-11-20 16:17:53,200 - INFO -  - Image Channels: 3
+2024-11-20 16:17:53,200 - INFO -  - Device: cuda
+2024-11-20 16:17:53,200 - INFO -  - Batch size: 4
+2024-11-20 16:17:53,200 - INFO -  - Workers: 4
+2024-11-20 16:17:53,200 - INFO -  - Patience: 10
+2024-11-20 16:17:53,200 - INFO - Starting model training
+2024-11-20 16:17:56,304 - DEBUG - Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2024-11-20 16:17:56,648 - DEBUG - Creating converter from 7 to 5
+2024-11-20 16:17:56,648 - DEBUG - Creating converter from 5 to 7
+2024-11-20 16:17:56,649 - DEBUG - Creating converter from 7 to 5
+2024-11-20 16:17:56,649 - DEBUG - Creating converter from 5 to 7
+2024-11-20 16:17:57,177 - DEBUG - etils.epath found. Using etils.epath for file I/O.
+2024-11-20 16:18:09,642 - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=11.0.
+...
+2024-11-22 13:52:57,272 - DEBUG - findfont: Matching sans\-serif:style=normal:variant=normal:weight=normal:stretch=normal:size=8.0 to DejaVu Sans ('/usr/share/matplotlib/mpl-data/fonts/ttf/DejaVuSans.ttf') with score of 2.050000.
+2024-11-22 13:52:57,284 - DEBUG - top of Axes not in the figure, so title not moved
+2024-11-22 13:52:57,332 - DEBUG - top of Axes not in the figure, so title not moved
+2024-11-22 13:52:57,820 - DEBUG - locator: <matplotlib.ticker.AutoLocator object at 0xfffe94589c60>
+2024-11-22 13:52:57,864 - DEBUG - top of Axes not in the figure, so title not moved
+2024-11-22 13:52:57,887 - DEBUG - top of Axes not in the figure, so title not moved
+2024-11-22 13:52:57,956 - DEBUG - top of Axes not in the figure, so title not moved
+2024-11-22 13:52:58,002 - DEBUG - top of Axes not in the figure, so title not moved
+2024-11-22 13:53:00,444 - INFO - Model has finished training and took: 20:48:27 -> not okay, since it doesn't count days
+2024-11-22 13:53:00,445 - INFO - Settings:
+2024-11-22 13:53:00,445 - INFO -  - Train images path: ./dataset/train/images
+2024-11-22 13:53:00,445 - INFO -  - Train labels path: ./dataset/train/labels
+2024-11-22 13:53:00,445 - INFO -  - Test images path: ./dataset/test/images
+2024-11-22 13:53:00,445 - INFO -  - Test labels path: ./dataset/test/labels
+2024-11-22 13:53:00,445 - INFO -  - Validation images path: ./dataset/valid/images
+2024-11-22 13:53:00,445 - INFO -  - Validation labels path: ./dataset/valid/labels
+2024-11-22 13:53:00,445 - INFO -  - Model name: yolov5n.pt
+2024-11-22 13:53:00,446 - INFO -  - Epochs: 250
+2024-11-22 13:53:00,446 - INFO -  - Image size: 640x640
+2024-11-22 13:53:00,446 - INFO -  - Image Channels: 3
+2024-11-22 13:53:00,446 - INFO -  - Device: cuda
+2024-11-22 13:53:00,446 - INFO -  - Batch size: 4
+2024-11-22 13:53:00,446 - INFO -  - Workers: 4
+2024-11-22 13:53:00,446 - INFO -  - Patience: 10
