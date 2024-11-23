@@ -88,9 +88,9 @@ Data distribution... (how much for train, val and test?)
 
 With $$ FP $$ being the number of Background image or images with no object
 
-## Reduce dataset
+## Reduced dataset
 
-Implemented an overall reduction of 70 \%
+Implemented a reduction of around 80 \% to the dataset
 
 | Use   | nº images | %   | $FP$ |
 |-------|-----------|-----| 0    |
@@ -98,6 +98,40 @@ Implemented an overall reduction of 70 \%
 | Test  | 300       | 10  | 0    |
 | Valid | 300       | 10  | 0    |
 | Total | 3000      | 100 |------|
+
+### How to reduce the dataset
+
+First, make sure you have a working dataset, like what is detailed in the **Getting Started** section. In the project directory, run the following command:
+
+```bash
+python3 reduce_dataset.py
+``` 
+
+You can check the variables for this program, to tune them at your liking. Then, confirm that the dataset is in the correct YOLO format with the command:
+
+```bash
+python3 validate_dataset.py
+```
+
+Next, you can also check that the dataset is correctly distributed with the command:
+```bash
+python3 count_images_directory.py
+```
+
+Having the previous steps completed, the remaining step is just to open the file `reduced_dataset/data.yaml` and fix the path from `dataset` to `reduced_dataset`:
+
+```yml
+# Better to use absolute links than relative
+train: {PATH}/dataset/train/images
+...
+```
+
+```yml
+# Better to use absolute links than relative
+train: {PATH}/reduced_dataset/train/images
+...
+```
+
 
 # Training
 
