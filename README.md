@@ -39,9 +39,9 @@ test: {PATH}/test/images
 ### For Windows
 
 ```powershell
-Invoke-WebRequest -Uri "https://www.kaggle.com/api/v1/datasets/download/ryukijanoramunae/pothole-dataset" -OutFile "./dataset.zip" -UseBasicParsing
+Invoke-WebRequest -Uri "https://www.kaggle.com/api/v1/datasets/download/ryukijanoramunae/pothole-dataset" -OutFile ".\dataset.zip" -UseBasicParsing
 Expand-Archive -Path ".\dataset.zip" -DestinationPath ".\dataset" -Force
-rm ./dataset.zip
+rm .\dataset.zip
 ```
 
 Next, navigate to the `dataset` folder and print the directory absolute path with the command:
@@ -76,12 +76,28 @@ pip install -r requirements.txt
 
 # Dataset
 
+## Original dataset
 Data distribution... (how much for train, val and test?)
 
-| Use | nº images |
-| Test | 891 |
-| Train | 11068 |
-| Valid | 1808 |
+| Use   | nº images | %   | $FP$ |
+|-------|-----------|-----| 0    |
+| Train | 11068     | 80  | 0    |
+| Test  | 891       | 7   | 0    |
+| Valid | 1808      | 13  | 0    |
+| Total | 13767     | 100 |------|
+
+With $$ FP $$ being the number of Background image or images with no object
+
+## Reduce dataset
+
+Implemented an overall reduction of 70 \%
+
+| Use   | nº images | %   | $FP$ |
+|-------|-----------|-----| 0    |
+| Train | 2400      | 80  | 0    |
+| Test  | 300       | 10  | 0    |
+| Valid | 300       | 10  | 0    |
+| Total | 3000      | 100 |------|
 
 # Training
 
@@ -190,6 +206,7 @@ Dropout rate for regularization in classification tasks, preventing overfitting 
 
 ## Prediction time
 
+## Make a script with the classification misses or different overlays from the labels
 
 ## Sources
 
@@ -201,6 +218,7 @@ Dropout rate for regularization in classification tasks, preventing overfitting 
 Keywords:
 * YOLO
 * Object Detection
+* Machine Learning
 * Computer Vision
 * Deep Neural Networks
 * Deep Learning
@@ -208,6 +226,8 @@ Keywords:
 
 Papers:
 * [Object Detection in 20 Years: A Survey](https://ieeexplore.ieee.org/abstract/document/10028728/keywords#keywords)
+* [A Review of Object Detection Techniques](https://ieeexplore.ieee.org/abstract/document/8901325?casa_token=DlDHOxQ5chAAAAAA:ZXfi3jNLy8UZZm_aM_ae9xxWly_ndfE1NrmxAUofJvfV8HJIO2_2ENK9NhMz9McfsAYvvlXsTK4)
+* [A comprehensive review of object detection with deep learning](https://www.sciencedirect.com/science/article/pii/S1051200422004298?casa_token=3-FodMhOwH4AAAAA:sOrSWPVjK3n3bk7tzbprQhTbVLYlDGg--yzIlVEZefWjM9fL9401XWokCU8YeFQwmbzvUVMqDyA)
 * [Object Detection With Deep Learning: A Review](https://ieeexplore.ieee.org/abstract/document/8627998?casa_token=EEZOjMDhn5MAAAAA:ijCq364P3WpbJ_luSdnz5Xkt_7BFUGCBbBCx9ZIhzPF9DEuO9anO-JnkGyscmletsBC9amG0s98)
 * [A review of Yolo Algorithm development](https://www.sciencedirect.com/science/article/pii/S1877050922001363)
 * [Object detection using YOLO: challenges, architectural successors, datasets and applications](https://link.springer.com/article/10.1007/s11042-022-13644-y)
