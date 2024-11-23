@@ -5,13 +5,22 @@
 dataset/
 dataset.zip
 dataset/*
+reduced_dataset
+dataset/
+dataset/*
+
 
 ######################################
-##         Execution .gitignore       ##
+##        Execution .gitignore      ##
 ######################################
 runs
 runs/
 runs/*
+
+######################################
+##          Others .gitignore       ##
+######################################
+papers
 
 ######################################
 ##          Python .gitignore       ##
