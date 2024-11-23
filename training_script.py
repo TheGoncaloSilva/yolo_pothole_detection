@@ -88,7 +88,7 @@ if __name__ == '__main__':
     parser.add_argument("--epochs", help="Number of epochs (default=100)", type=int, default=250)
     parser.add_argument("--batch", help="Batch size (default=4)", type=int, default=4)
     parser.add_argument("--workers", help="Number of workers (default=4)", type=int, default=4)
-    parser.add_argument("--patience", help="Early stopping patience (default=10)", type=int, default=10)
+    parser.add_argument("--patience", help="Early stopping patience (default=10)", type=int, default=100)
     args = parser.parse_args()
 
     numericLogLevel = getattr(logging, args.log.upper(), None)
