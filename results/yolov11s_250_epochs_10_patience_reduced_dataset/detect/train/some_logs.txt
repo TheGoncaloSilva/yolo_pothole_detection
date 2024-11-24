@@ -1,0 +1,33 @@
+2024-11-24 13:08:23,406 - INFO - Settings:
+2024-11-24 13:08:23,406 - INFO -  - Train images path: ./dataset/train/images
+2024-11-24 13:08:23,406 - INFO -  - Train labels path: ./dataset/train/labels
+2024-11-24 13:08:23,407 - INFO -  - Test images path: ./dataset/test/images
+2024-11-24 13:08:23,407 - INFO -  - Test labels path: ./dataset/test/labels
+2024-11-24 13:08:23,408 - INFO -  - Validation images path: ./dataset/valid/images
+2024-11-24 13:08:23,408 - INFO -  - Validation labels path: ./dataset/valid/labels
+2024-11-24 13:08:23,408 - INFO -  - Model name: yolo11s.pt
+2024-11-24 13:08:23,408 - INFO -  - Epochs: 250
+2024-11-24 13:08:23,408 - INFO -  - Image size: 640x640
+2024-11-24 13:08:23,409 - INFO -  - Image Channels: 3
+2024-11-24 13:08:23,410 - INFO -  - Device: cuda
+2024-11-24 13:08:23,410 - INFO -  - Batch size: 4
+2024-11-24 13:08:23,410 - INFO -  - Workers: 4
+2024-11-24 13:08:23,410 - INFO -  - Patience: 10
+2024-11-24 13:08:23,410 - INFO - Starting model training
+
+2024-11-24 18:07:13,509 - INFO - Model has finished training and took: 04:58:50
+2024-11-24 18:07:13,510 - INFO - Settings:
+2024-11-24 18:07:13,510 - INFO -  - Train images path: ./dataset/train/images
+2024-11-24 18:07:13,510 - INFO -  - Train labels path: ./dataset/train/labels
+2024-11-24 18:07:13,510 - INFO -  - Test images path: ./dataset/test/images
+2024-11-24 18:07:13,510 - INFO -  - Test labels path: ./dataset/test/labels
+2024-11-24 18:07:13,511 - INFO -  - Validation images path: ./dataset/valid/images
+2024-11-24 18:07:13,511 - INFO -  - Validation labels path: ./dataset/valid/labels
+2024-11-24 18:07:13,511 - INFO -  - Model name: yolo11s.pt
+2024-11-24 18:07:13,511 - INFO -  - Epochs: 250
+2024-11-24 18:07:13,511 - INFO -  - Image size: 640x640
+2024-11-24 18:07:13,511 - INFO -  - Image Channels: 3
+2024-11-24 18:07:13,512 - INFO -  - Device: cuda
+2024-11-24 18:07:13,512 - INFO -  - Batch size: 4
+2024-11-24 18:07:13,513 - INFO -  - Workers: 4
+2024-11-24 18:07:13,513 - INFO -  - Patience: 10
