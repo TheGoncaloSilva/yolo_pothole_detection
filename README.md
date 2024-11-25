@@ -225,6 +225,8 @@ Dropout rate for regularization in classification tasks, preventing overfitting 
 
 ### Maybe try augmentation?
 
+https://rumn.medium.com/yolo-data-augmentation-explained-turbocharge-your-object-detection-model-94c33278303a
+
 ### Hyperparameters (Optional)
 
 ### Improve training speed 
