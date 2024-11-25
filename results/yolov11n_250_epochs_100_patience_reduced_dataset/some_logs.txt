@@ -1,0 +1,33 @@
+2024-11-24 21:38:51,141 - INFO - Settings:
+2024-11-24 21:38:51,141 - INFO -  - Train images path: ./dataset/train/images
+2024-11-24 21:38:51,142 - INFO -  - Train labels path: ./dataset/train/labels
+2024-11-24 21:38:51,142 - INFO -  - Test images path: ./dataset/test/images
+2024-11-24 21:38:51,142 - INFO -  - Test labels path: ./dataset/test/labels
+2024-11-24 21:38:51,143 - INFO -  - Validation images path: ./dataset/valid/images
+2024-11-24 21:38:51,143 - INFO -  - Validation labels path: ./dataset/valid/labels
+2024-11-24 21:38:51,143 - INFO -  - Model name: yolo11n.pt
+2024-11-24 21:38:51,143 - INFO -  - Epochs: 250
+2024-11-24 21:38:51,143 - INFO -  - Image size: 640x640
+2024-11-24 21:38:51,144 - INFO -  - Image Channels: 3
+2024-11-24 21:38:51,144 - INFO -  - Device: cuda
+2024-11-24 21:38:51,144 - INFO -  - Batch size: 4
+2024-11-24 21:38:51,144 - INFO -  - Workers: 4
+2024-11-24 21:38:51,144 - INFO -  - Patience: 100
+2024-11-24 21:38:51,144 - INFO - Starting model training
+...
+2024-11-25 05:42:22,507 - INFO - Model has finished training and took: 08:03:31
+2024-11-25 05:42:22,507 - INFO - Settings:
+2024-11-25 05:42:22,507 - INFO -  - Train images path: ./dataset/train/images
+2024-11-25 05:42:22,507 - INFO -  - Train labels path: ./dataset/train/labels
+2024-11-25 05:42:22,508 - INFO -  - Test images path: ./dataset/test/images
+2024-11-25 05:42:22,508 - INFO -  - Test labels path: ./dataset/test/labels
+2024-11-25 05:42:22,508 - INFO -  - Validation images path: ./dataset/valid/images
+2024-11-25 05:42:22,508 - INFO -  - Validation labels path: ./dataset/valid/labels
+2024-11-25 05:42:22,509 - INFO -  - Model name: yolo11n.pt
+2024-11-25 05:42:22,509 - INFO -  - Epochs: 250
+2024-11-25 05:42:22,509 - INFO -  - Image size: 640x640
+2024-11-25 05:42:22,510 - INFO -  - Image Channels: 3
+2024-11-25 05:42:22,510 - INFO -  - Device: cuda
+2024-11-25 05:42:22,510 - INFO -  - Batch size: 4
+2024-11-25 05:42:22,510 - INFO -  - Workers: 4
+2024-11-25 05:42:22,511 - INFO -  - Patience: 100
