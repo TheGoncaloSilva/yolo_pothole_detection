@@ -23,6 +23,8 @@ runs/*
 ##          Others .gitignore       ##
 ######################################
 papers
+tmp
+assets
 
 ######################################
 ##          VScode .gitignore       ##

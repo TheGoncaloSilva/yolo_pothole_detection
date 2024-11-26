@@ -1,0 +1,33 @@
+2024-11-26 15:17:27,823 - INFO - Settings:
+2024-11-26 15:17:27,824 - INFO -  - Train images path: ./dataset/train/images
+2024-11-26 15:17:27,824 - INFO -  - Train labels path: ./dataset/train/labels
+2024-11-26 15:17:27,824 - INFO -  - Test images path: ./dataset/test/images
+2024-11-26 15:17:27,824 - INFO -  - Test labels path: ./dataset/test/labels
+2024-11-26 15:17:27,824 - INFO -  - Validation images path: ./dataset/valid/images
+2024-11-26 15:17:27,824 - INFO -  - Validation labels path: ./dataset/valid/labels
+2024-11-26 15:17:27,824 - INFO -  - Model name: yolo11n.pt
+2024-11-26 15:17:27,825 - INFO -  - Epochs: 20
+2024-11-26 15:17:27,825 - INFO -  - Image size: 640x640
+2024-11-26 15:17:27,826 - INFO -  - Image Channels: 3
+2024-11-26 15:17:27,826 - INFO -  - Device: cuda
+2024-11-26 15:17:27,826 - INFO -  - Batch size: 4
+2024-11-26 15:17:27,826 - INFO -  - Workers: 4
+2024-11-26 15:17:27,827 - INFO -  - Patience: 100
+2024-11-26 15:17:27,827 - INFO - Starting model training
+...
+2024-11-26 18:20:37,409 - INFO - Model has finished training and took: 03:03:09
+2024-11-26 18:20:37,410 - INFO - Settings:
+2024-11-26 18:20:37,410 - INFO -  - Train images path: ./dataset/train/images
+2024-11-26 18:20:37,410 - INFO -  - Train labels path: ./dataset/train/labels
+2024-11-26 18:20:37,410 - INFO -  - Test images path: ./dataset/test/images
+2024-11-26 18:20:37,411 - INFO -  - Test labels path: ./dataset/test/labels
+2024-11-26 18:20:37,411 - INFO -  - Validation images path: ./dataset/valid/images
+2024-11-26 18:20:37,411 - INFO -  - Validation labels path: ./dataset/valid/labels
+2024-11-26 18:20:37,411 - INFO -  - Model name: yolo11n.pt
+2024-11-26 18:20:37,411 - INFO -  - Epochs: 20
+2024-11-26 18:20:37,411 - INFO -  - Image size: 640x640
+2024-11-26 18:20:37,412 - INFO -  - Image Channels: 3
+2024-11-26 18:20:37,412 - INFO -  - Device: cuda
+2024-11-26 18:20:37,412 - INFO -  - Batch size: 4
+2024-11-26 18:20:37,412 - INFO -  - Workers: 4
+2024-11-26 18:20:37,412 - INFO -  - Patience: 100
