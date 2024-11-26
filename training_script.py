@@ -75,6 +75,7 @@ def print_settings() -> None:
     logging.info(f" - Batch size: {args.batch}")
     logging.info(f" - Workers: {args.workers}")
     logging.info(f" - Patience: {args.patience}")
+    logging.info(f" - Data Augmentation: {args.augmentation}")
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -89,6 +90,7 @@ if __name__ == '__main__':
     parser.add_argument("--batch", help="Batch size (default=4)", type=int, default=4)
     parser.add_argument("--workers", help="Number of workers (default=4)", type=int, default=4)
     parser.add_argument("--patience", help="Early stopping patience (default=10)", type=int, default=100)
+    parser.add_argument("--augmentation", help="Enable data augmentation techniques", default="True", action="store_true")
     args = parser.parse_args()
 
     numericLogLevel = getattr(logging, args.log.upper(), None)
@@ -150,12 +152,33 @@ if __name__ == '__main__':
     # Training the model
     logging.info("Starting model training")
     startTime = time.time()
-    model.train(data=args.datafile,
-                epochs=args.epochs,
-                imgsz=(image_info[0], image_info[1], image_info[2]),
-                batch=args.batch,
-                workers=args.workers,
-                patience=args.patience)  # Early stopping if no improvement after 10 epochs
+    if args.augmentation:
+        model.train(data=args.datafile,
+                    epochs=args.epochs,
+                    imgsz=(image_info[0], image_info[1], image_info[2]),
+                    batch=args.batch,
+                    workers=args.workers,
+                    patience=args.patience)  # Early stopping if no improvement after 10 epochs
+    else:
+        model.train(data=args.datafile,
+                    epochs=args.epochs,
+                    imgsz=(image_info[0], image_info[1], image_info[2]),
+                    batch=args.batch,
+                    workers=args.workers,
+                    patience=args.patience,
+                    fliplr=0.5,       # Probability of horizontal flip
+                    flipud=0.0,        # Probability of vertical flip
+                    scale=0.5,         # Scaling factor (zoom in/out)
+                    translate=0.2,     # Translation factor
+                    degress=90.0,        # Rotation (degrees)
+                    shear=0.0,         # Shear intensity
+                    hsv_h=0.015,       # HSV hue augmentation
+                    hsv_s=0.7,         # HSV saturation augmentation
+                    hsv_v=0.4,         # HSV brightness augmentation
+                    mosaic=1.0,        # Enable mosaic augmentation (1.0 = on, 0.0 = off)
+                    mixup=0.0,         # Enable mixup augmentation (1.0 = on, 0.0 = off)
+
+                    )  # Early stopping if no improvement after 10 epochs
     training_time: float = time.time() - startTime
     
     # Calculate days, hours, minutes, and seconds
