@@ -270,6 +270,7 @@ Papers:
 * [A Comprehensive Review of YOLO Architectures in Computer Vision: From YOLOv1 to YOLOv8 and YOLO-NAS](https://www.mdpi.com/2504-4990/5/4/83)
 * [YOLO-v1 to YOLO-v8, the Rise of YOLO and Its Complementary Nature toward Digital Manufacturing and Industrial Defect Detection](https://www.mdpi.com/2075-1702/11/7/677)
 * [Comparison of CNN and YOLO for Object Detection](https://koreascience.kr/article/JAKO202011161035249.page)
+* [DMAC-YOLO: A High-Precision YOLO v5s Object Detection Model with a Novel Optimizer](https://ieeexplore.ieee.org/document/10650645)
 
 
 tips:
